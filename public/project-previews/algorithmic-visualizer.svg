@@ -1,0 +1,15 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#12091f"/>
+  <rect x="72" y="72" width="1056" height="616" rx="30" fill="#171129" stroke="#7c3aed" stroke-width="2"/>
+  <text x="120" y="145" fill="#f5d0fe" font-family="Inter, Arial" font-size="40" font-weight="700">Algorithmic Visualizer</text>
+  <rect x="120" y="190" width="300" height="420" rx="24" fill="#0f1020" stroke="#312e81"/>
+  <text x="155" y="245" fill="#c4b5fd" font-family="Inter, Arial" font-size="22" font-weight="700">Controls</text>
+  <rect x="155" y="285" width="220" height="42" rx="12" fill="#581c87"/>
+  <rect x="155" y="350" width="180" height="42" rx="12" fill="#312e81"/>
+  <rect x="155" y="415" width="240" height="42" rx="12" fill="#be185d"/>
+  <rect x="470" y="190" width="570" height="420" rx="24" fill="#09090f" stroke="#312e81"/>
+  <g fill="#a78bfa">
+    <rect x="520" y="520" width="34" height="50" rx="8"/><rect x="575" y="455" width="34" height="115" rx="8"/><rect x="630" y="390" width="34" height="180" rx="8"/><rect x="685" y="330" width="34" height="240" rx="8"/><rect x="740" y="270" width="34" height="300" rx="8"/><rect x="795" y="350" width="34" height="220" rx="8"/><rect x="850" y="420" width="34" height="150" rx="8"/><rect x="905" y="300" width="34" height="270" rx="8"/><rect x="960" y="235" width="34" height="335" rx="8"/>
+  </g>
+  <path d="M520 260 L995 260" stroke="#f472b6" stroke-width="3" stroke-dasharray="8 10"/>
+</svg>

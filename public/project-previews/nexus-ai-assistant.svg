@@ -1,0 +1,14 @@
+<svg width="1200" height="760" viewBox="0 0 1200 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="760" fill="#1f0b12"/>
+  <rect x="72" y="72" width="1056" height="616" rx="30" fill="#130f16" stroke="#fb7185" stroke-width="2"/>
+  <text x="120" y="142" fill="#ffe4e6" font-family="Inter, Arial" font-size="40" font-weight="700">Nexus AI Assistant</text>
+  <rect x="120" y="190" width="350" height="450" rx="26" fill="#09090f" stroke="#7f1d1d"/>
+  <rect x="165" y="245" width="230" height="46" rx="23" fill="#be123c"/>
+  <rect x="165" y="320" width="260" height="90" rx="24" fill="#1e293b"/>
+  <rect x="165" y="440" width="220" height="90" rx="24" fill="#be123c"/>
+  <rect x="520" y="190" width="520" height="450" rx="26" fill="#09090f" stroke="#7f1d1d"/>
+  <circle cx="780" cy="395" r="110" fill="#be123c" opacity=".22"/>
+  <circle cx="780" cy="395" r="74" fill="#fb7185" opacity=".28"/>
+  <circle cx="780" cy="395" r="34" fill="#fda4af"/>
+  <path d="M780 285 L780 240 M890 395 L950 395 M780 505 L780 555 M670 395 L610 395 M858 317 L910 265 M858 473 L910 525 M702 473 L650 525 M702 317 L650 265" stroke="#fda4af" stroke-width="6" stroke-linecap="round"/>
+</svg>
