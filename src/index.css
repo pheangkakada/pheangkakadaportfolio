@@ -132,4 +132,15 @@
   [data-theme="light"] select {
     color: #0f172a !important;
   }
+  
 }
+@keyframes spinSlow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
