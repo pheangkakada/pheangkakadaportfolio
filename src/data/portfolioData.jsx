@@ -1,16 +1,16 @@
 import { CodeIcon, PaletteIcon, TerminalIcon } from '../components/icons';
 
 export const PERSONAL_INFO = {
-  name: "Alex Mercer",
+  name: "Kakada Pheang",
   role: "Full-Stack Software Engineer & Designer",
   tagline:
     "Computer Science major passionate about designing highly scalable web systems, intuitive UI/UX experiences, and robust API architectures. Actively seeking a Software Engineering Internship for Summer 2027.",
-  email: "alex.mercer@dev.io",
+  email: "Kakada.Pheang@dev.io",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
   resumeLink: "#",
-  githubUsername: "alexmercer",
-  discordUsername: "alexmercer#1337",
+  githubUsername: "kakadapheang",
+  discordUsername: "kakadapheang#1337",
   gpa: "3.85 / 4.00",
 };
 

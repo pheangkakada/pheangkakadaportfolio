@@ -51,7 +51,6 @@ const Projects = () => {
     <section id="projects" className="border-t border-slate-900 bg-slate-950 py-24">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeader
-          kicker="03 // Projects"
           title="My Projects"
           description="A simple overview of my work with preview images, technologies, and quick links."
           className="mb-10"

@@ -122,7 +122,6 @@ const Credentials = () => {
         <div className="mb-10 sm:mb-12 flex flex-col gap-6">
           {" "}
           <SectionHeader
-            kicker="04 // Certificates"
             title="Verified Credentials"
             description="Browse verified certificates and explore professional achievements."
           />{" "}

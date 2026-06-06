@@ -57,11 +57,11 @@ const CpuIcon = ({ className = "w-4 h-4" }) => (
 );
 
 const PERSONAL_INFO = {
-  name: "Alex Thorne",
-  avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=512&q=80",
+  name: "Kakada Pheang",
+  avatar: "https://avatars.githubusercontent.com/u/159972975?v=4",
   role: "Creative Frontend Architect",
   tagline: "I engineer ultra-modern, interactive digital ecosystems where flawless performance meets beautiful visual design.",
-  email: "alex.thorne@dev.io",
+  email: "Kakada.Pheang@dev.io",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
 };
@@ -284,7 +284,6 @@ const Hero = () => {
         <div className={`absolute bottom-[-100px] right-[-100px] h-[550px] w-[550px] rounded-full transition-all duration-1000 blur-[100px] ${
           activeMode === 'overclock' ? 'bg-rose-500/10' : activeMode === 'hyper' ? 'bg-purple-500/10' : 'bg-blue-500/10'
         }`}></div>
-        <div className="absolute inset-0 bg-[linear-gradient(rgba(148,163,184,0.015)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.015)_1px,transparent_1px)] bg-[size:40px_40px]"></div>
         <div className="absolute inset-0 matrix-bg"></div>
       </div>
 
@@ -361,7 +360,7 @@ const Hero = () => {
                   activeMode === 'overclock' ? 'hover:border-fuchsia-500/30' : activeMode === 'hyper' ? 'hover:border-indigo-500/30' : 'hover:border-cyan-500/30'
                 }`}
               >
-                <GithubIcon className="h-4.5 w-4.5" />
+                <GithubIcon/>
               </a>
               <a
                 href={PERSONAL_INFO.linkedin}
@@ -371,7 +370,7 @@ const Hero = () => {
                   activeMode === 'overclock' ? 'hover:border-fuchsia-500/30' : activeMode === 'hyper' ? 'hover:border-indigo-500/30' : 'hover:border-cyan-500/30'
                 }`}
               >
-                <LinkedinIcon className="h-4.5 w-4.5" />
+                <LinkedinIcon/>
               </a>
             </div>
           </div>
@@ -501,7 +500,7 @@ const Hero = () => {
                   {activeTab === "mode.json" && (
                     <div className="font-mono text-[10.5px] leading-4 text-slate-300 overflow-x-hidden">
                       <span className="text-slate-500">&#123;</span><br />
-                      &nbsp;&nbsp;<span className="text-amber-400">"profile"</span>: <span className="text-emerald-400">"Alex Thorne"</span>,<br />
+                      &nbsp;&nbsp;<span className="text-amber-400">"profile"</span>: <span className="text-emerald-400">"Kakada Pheang"</span>,<br />
                       &nbsp;&nbsp;<span className="text-amber-400">"activeMode"</span>: <span className="text-emerald-400">"{activeMode}"</span>,<br />
                       &nbsp;&nbsp;<span className="text-amber-400">"overclocked"</span>: <span className="text-sky-400">{activeMode === 'overclock' ? 'true' : 'false'}</span><br />
                       <span className="text-slate-500">&#125;</span>
@@ -574,7 +573,7 @@ const Hero = () => {
                         <span className="text-emerald-400">100%</span>
                       </div>
                       <div className="text-center text-[7px] font-mono uppercase bg-slate-950/80 px-1 py-0.5 rounded border border-slate-800/80 tracking-widest text-slate-200">
-                        ALEX_THORNE
+                        Kakada_Pheang
                       </div>
                     </div>
 

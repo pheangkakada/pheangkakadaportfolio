@@ -12,7 +12,6 @@ const About = () => {
     <section id="about" className="py-24 bg-slate-950 border-t border-slate-900 relative">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeader  
-          kicker="01 // Profile"
           title="About Me & Education"
           description="A quick look at my academic path, engineering focus, and current software development readiness."
           className="mb-10"

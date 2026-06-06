@@ -175,7 +175,6 @@ const Skills = () => {
 
       <div className="container mx-auto px-6 md:px-12 relative z-10">
         <SectionHeader
-          kicker="02 // Toolkit"
           title="Skills & Technologies"
           description="Technologies and tools I use to build modern web applications, scalable backend systems and user-focused digital experiences."
           className="mb-14"
