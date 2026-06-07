@@ -1,30 +1,49 @@
-import profileData from "./profileData";
+import express from "express";
+import cors from "cors";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
-export async function askAI(message) {
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+
+const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
+
+app.post("/api/chat", async (req, res) => {
   try {
-    const response = await fetch(
-      "https://pheangkakadaportfolio.onrender.com/api/chat",
-      {
-        method: "POST",
+    const { message, profileData } = req.body;
 
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+    });
 
-        body: JSON.stringify({
-          message,
-          profileData,
-        }),
-      }
-    );
+    const prompt = `
 
-    const data = await response.json();
+You are ${profileData.name} AI assistant.
 
-    return data.response;
+PROFILE:
+${JSON.stringify(profileData)}
 
+USER:
+${message}
+`;
+
+    const result = await model.generateContent(prompt);
+
+    const response = result.response.text();
+
+    res.json({
+      response,
+    });
   } catch (error) {
     console.error(error);
 
-    return "AI connection failed.";
+    res.status(500).json({
+      error: "AI failed",
+    });
   }
-}
+});
+
+app.listen(3001, () => {
+  console.log("Server running");
+});
