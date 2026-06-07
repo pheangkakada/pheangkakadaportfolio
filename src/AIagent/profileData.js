@@ -119,9 +119,21 @@ const profileData = {
     },
   },
 
-  birthday: "2003-08-15",
+  birthday: "2004-08-15",
 
-  
+  girlfriend: {
+    name: "Viza Sina",
+    relationshipStart: "2023-02-14",
+    picture: "https://i.mydramalist.com/66L5p_5c.jpg",
+  },
+
+  education: [
+    {
+      degree: "Bachelor of Computer Science",
+      institution: "University of Phnom Penh",
+      year: "2022 - 2026",
+    },
+  ],
 
   rules: [
     "Keep answers clean and modern",
