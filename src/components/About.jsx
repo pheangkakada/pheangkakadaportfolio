@@ -9,7 +9,7 @@ const About = () => {
   const loadGraphData = [35, 75, 45, 90, 65, 100, 55, 85, 40, 70, 30, 60, 80, 45];
 
   return (
-    <section id="about" className="py-24 bg-slate-950 border-t border-slate-900 relative">
+    <section id="about" className="py-24 bg-slate-950  relative">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeader  
           title="About Me & Education"

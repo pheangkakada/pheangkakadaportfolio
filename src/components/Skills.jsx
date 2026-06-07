@@ -167,7 +167,7 @@ const Skills = () => {
   return (
     <section
       id="skills"
-      className="py-24 bg-slate-950 border-t border-slate-900 relative"
+      className="  relative py-24"
     >
       <div className="absolute top-1/4 right-0 w-[32rem] h-[32rem] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 

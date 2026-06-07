@@ -1,4 +1,9 @@
 import { CodeIcon, PaletteIcon, TerminalIcon } from '../components/icons';
+import cert1 from "../assets/cerfificateImage/fortinet.png";
+
+
+
+
 
 export const PERSONAL_INFO = {
   name: "Kakada Pheang",
@@ -14,134 +19,6 @@ export const PERSONAL_INFO = {
   gpa: "3.85 / 4.00",
 };
 
-export const CERTIFICATES = [
-  {
-    id: "cert-1",
-    title: "Solutions Architect",
-    level: "Associate Level Professional",
-    issuer: "Amazon Web Services (AWS)",
-    date: "Dec 2025",
-    skills: [
-      "Cloud Architecture",
-      "Scalable Systems",
-      "AWS IAM & S3",
-      "Microservices Engine",
-    ],
-    gradient: "from-amber-500 via-orange-600 to-yellow-500",
-    badgeIcon: "☁️",
-    sealColor: "#f59e0b",
-    accentColor: "text-amber-400 bg-amber-950/40 border-amber-800/40",
-    badgeBg: "bg-amber-500/10 border-amber-500/20",
-  },
-  {
-    id: "cert-2",
-    title: "React Developer",
-    level: "Advanced Professional Degree",
-    issuer: "Meta / Coursera",
-    date: "Aug 2025",
-    skills: [
-      "React State Engine",
-      "Custom Hooks",
-      "Concurrent Rendering",
-      "Next.js Framework",
-    ],
-    gradient: "from-cyan-400 via-blue-600 to-indigo-500",
-    badgeIcon: "⚛️",
-    sealColor: "#06b6d4",
-    accentColor: "text-cyan-400 bg-cyan-950/40 border-cyan-800/40",
-    badgeBg: "bg-cyan-500/10 border-cyan-500/20",
-  },
-  {
-    id: "cert-3",
-    title: "MongoDB Developer",
-    level: "Database Administrator Core",
-    issuer: "MongoDB University",
-    date: "May 2025",
-    skills: [
-      "NoSQL Data Modeling",
-      "Aggregation Pipeline",
-      "Atlas Search",
-      "Performance Sharding",
-    ],
-    gradient: "from-emerald-400 via-teal-600 to-green-500",
-    badgeIcon: "🍃",
-    sealColor: "#10b981",
-    accentColor: "text-emerald-400 bg-emerald-950/40 border-emerald-800/40",
-    badgeBg: "bg-emerald-500/10 border-emerald-500/20",
-  },
-  {
-    id: "cert-4",
-    title: "PostgreSQL Advanced DBA",
-    level: "Enterprise Database Specialist",
-    issuer: "EnterpriseDB / PostgreSQL",
-    date: "Jan 2025",
-    skills: [
-      "Query Performance Tuning",
-      "Write-Ahead Logging",
-      "Row Level Security",
-      "JSONB Systems",
-    ],
-    gradient: "from-blue-500 via-indigo-600 to-slate-700",
-    badgeIcon: "🐘",
-    sealColor: "#4f46e5",
-    accentColor: "text-indigo-400 bg-indigo-950/40 border-indigo-800/40",
-    badgeBg: "bg-indigo-500/10 border-indigo-500/20",
-  },
-  {
-    id: "cert-5",
-    title: "Cloud Digital Leader",
-    level: "Professional Infrastructure Core",
-    issuer: "Google Cloud Platform (GCP)",
-    date: "Oct 2024",
-    skills: [
-      "GCP Anthos",
-      "BigQuery SQL Analytics",
-      "IAM Roles",
-      "Kubernetes Engine",
-    ],
-    gradient: "from-blue-400 via-cyan-500 to-sky-600",
-    badgeIcon: "⚡",
-    sealColor: "#38bdf8",
-    accentColor: "text-sky-400 bg-sky-950/40 border-sky-800/40",
-    badgeBg: "bg-sky-500/10 border-sky-500/20",
-  },
-  {
-    id: "cert-6",
-    title: "Kubernetes Administrator",
-    level: "Certified CKA System Engineer",
-    issuer: "CNCF / Linux Foundation",
-    date: "Jul 2024",
-    skills: [
-      "Pod Orchestration",
-      "Helm Packages",
-      "Ingress Controller",
-      "Network Policies",
-    ],
-    gradient: "from-violet-500 via-purple-600 to-fuchsia-700",
-    badgeIcon: "☸️",
-    sealColor: "#a855f7",
-    accentColor: "text-purple-400 bg-purple-950/40 border-purple-800/40",
-    badgeBg: "bg-purple-500/10 border-purple-500/20",
-  },
-  {
-    id: "cert-7",
-    title: "Advanced Data Analyst",
-    level: "Python Scientific Core",
-    issuer: "Coursera / IBM",
-    date: "Mar 2024",
-    skills: [
-      "Pandas DataFrames",
-      "Scikit-Learn Regression",
-      "NumPy Algebra",
-      "Matplotlib Charts",
-    ],
-    gradient: "from-rose-500 via-red-600 to-orange-500",
-    badgeIcon: "📈",
-    sealColor: "#f43f5e",
-    accentColor: "text-rose-400 bg-rose-950/40 border-rose-800/40",
-    badgeBg: "bg-rose-500/10 border-rose-500/20",
-  },
-];
 
 export const PROJECTS = [
   {
@@ -359,15 +236,7 @@ export const MILESTONES = [
   },
 ];
 
-export const CERT_GRADIENT_STOPS = {
-  "cert-1": { from: "#f59e0b", via: "#ea580c", to: "#eab308" },
-  "cert-2": { from: "#22d3ee", via: "#2563eb", to: "#6366f1" },
-  "cert-3": { from: "#34d399", via: "#0d9488", to: "#22c55e" },
-  "cert-4": { from: "#3b82f6", via: "#4f46e5", to: "#334155" },
-  "cert-5": { from: "#60a5fa", via: "#06b6d4", to: "#0284c7" },
-  "cert-6": { from: "#8b5cf6", via: "#9333ea", to: "#d946ef" },
-  "cert-7": { from: "#f43f5e", via: "#dc2626", to: "#f97316" },
-};
+
 
 export const THREE_SKILLS_SYSTEM = {
   frontend: {

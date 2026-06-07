@@ -1,6 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 
-// Native high-fidelity SVG Icons to replace generic emojis
+// Native high-fidelity SVG Icons
 const ReactIcon = ({ className = "w-5 h-5" }) => (
   <svg className={className} viewBox="-11.5 -10.23 23 20.46" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="0" cy="0" r="2.05" fill="currentColor"/>
@@ -32,25 +32,25 @@ const NodeIcon = ({ className = "w-5 h-5" }) => (
   </svg>
 );
 
-const GithubIcon = ({ className = "w-5 h-5" }) => (
+export const GithubIcon = ({ className = "w-5 h-5" }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
   </svg>
 );
 
-const LinkedinIcon = ({ className = "w-5 h-5" }) => (
+export const LinkedinIcon = ({ className = "w-5 h-5" }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
 
-const ExternalLinkIcon = ({ className = "w-5 h-5" }) => (
+export const ExternalLinkIcon = ({ className = "w-5 h-5" }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
   </svg>
 );
 
-const CpuIcon = ({ className = "w-4 h-4" }) => (
+export const CpuIcon = ({ className = "w-4 h-4" }) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
     <path strokeLinecap="round" strokeLinejoin="round" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 5h10a2 2 0 012 2v10a2 2 0 01-2 2H7a2 2 0 01-2-2V7a2 2 0 012-2zM9 9h6v6H9V9z" />
   </svg>
@@ -118,7 +118,7 @@ const systemModes = {
     accent: "text-fuchsia-400",
     bgAccent: "bg-fuchsia-500/10",
     borderAccent: "border-fuchsia-500/25",
-    speed: "4s",
+    speed: "6s",
     load: 99,
     logs: [
       "OVERCLOCK_ACTIVE: Warning, safety limit bypassed!",
@@ -214,10 +214,7 @@ const Hero = () => {
     setTilt({ x: tiltX, y: tiltY, shineX, shineY });
   };
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
-
+  const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => {
     setIsHovered(false);
     setTilt({ x: 0, y: 0, shineX: 50, shineY: 50 });
@@ -226,18 +223,10 @@ const Hero = () => {
   const currentConfig = systemModes[activeMode];
 
   return (
-    <section className="relative min-h-screen overflow-hidden border-b border-slate-900 bg-slate-950 text-slate-200 flex items-center">
+    <section className="relative min-h-screen overflow-hidden border-b border-slate-900 bg-slate-950 text-slate-200 flex items-center w-full">
       
       {/* Dynamic Keyframes Injection */}
       <style>{`
-        @keyframes float-slow {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(-16px) rotate(1.5deg); }
-        }
-        @keyframes float-delayed {
-          0%, 100% { transform: translateY(0px) rotate(0deg); }
-          50% { transform: translateY(12px) rotate(-1deg); }
-        }
         @keyframes pulse-cyber {
           0%, 100% { transform: scale(1); opacity: 0.12; filter: blur(60px); }
           50% { transform: scale(1.15); opacity: 0.22; filter: blur(80px); }
@@ -254,12 +243,6 @@ const Hero = () => {
           0% { background-position: 0px 0px; }
           100% { background-position: 40px 40px; }
         }
-        .animate-float-slow {
-          animation: float-slow 7s ease-in-out infinite;
-        }
-        .animate-float-delayed {
-          animation: float-delayed 5.5s ease-in-out infinite;
-        }
         .animate-pulse-cyber {
           animation: pulse-cyber 10s ease-in-out infinite;
         }
@@ -267,7 +250,7 @@ const Hero = () => {
           animation: rotate-clockwise var(--orbit-speed, 25s) linear infinite;
         }
         .animate-rotate-counter {
-          animation: rotate-counter var(--orbit-speed, 18s) linear infinite;
+          animation: rotate-counter var(--orbit-speed, 25s) linear infinite;
         }
         .matrix-bg {
           background-size: 20px 20px;
@@ -276,7 +259,7 @@ const Hero = () => {
         }
       `}</style>
 
-      {}
+      {/* Atmospheric Background Layers */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div className={`absolute left-[-150px] top-10 h-[500px] w-[500px] rounded-full transition-all duration-1000 blur-[100px] ${
           activeMode === 'overclock' ? 'bg-fuchsia-500/10' : activeMode === 'hyper' ? 'bg-indigo-500/10' : 'bg-cyan-500/10'
@@ -293,7 +276,6 @@ const Hero = () => {
           {/* LEFT COLUMN - TEXT ARCHITECT */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             
-            {/* Context Badge */}
             <div className={`mb-6 inline-flex self-start items-center gap-2.5 rounded-full border px-4 py-2 backdrop-blur-xl transition-all duration-500 ${currentConfig.borderAccent} ${currentConfig.bgAccent}`}>
               <span className={`h-2 w-2 rounded-full transition-all duration-300 ${
                 activeMode === 'overclock' ? 'bg-fuchsia-400 animate-ping' : activeMode === 'hyper' ? 'bg-indigo-400 animate-pulse' : 'bg-cyan-400 animate-pulse'
@@ -303,7 +285,6 @@ const Hero = () => {
               </span>
             </div>
 
-            {/* Main Premium Typography Title */}
             <h1 className="max-w-2xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
               Hi, I'm{" "}
               <span className={`bg-gradient-to-r bg-clip-text text-transparent transition-all duration-1000 ${currentConfig.class}`}>
@@ -311,7 +292,6 @@ const Hero = () => {
               </span>
             </h1>
 
-            {/* Dynamic Text Rotator */}
             <div className="mt-5 flex h-10 items-center">
               <span className="text-xl font-medium tracking-tight text-slate-300 sm:text-2xl">
                 {text}
@@ -321,12 +301,10 @@ const Hero = () => {
               }`}></span>
             </div>
 
-            {/* Tagline / Bio statement */}
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-400">
               {PERSONAL_INFO.tagline}
             </p>
 
-            {/* Action Buttons */}
             <div className="mt-8 flex flex-wrap gap-4">
               <a
                 href="#projects"
@@ -346,11 +324,10 @@ const Hero = () => {
                 href={`mailto:${PERSONAL_INFO.email}`}
                 className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/40 px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-slate-300 backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:border-slate-700 hover:text-white"
               >
-                Inquire Core
+                Contact Me
               </a>
             </div>
 
-            {/* Social Anchor Nodes */}
             <div className="mt-10 flex items-center gap-3">
               <a
                 href={PERSONAL_INFO.github}
@@ -375,13 +352,12 @@ const Hero = () => {
             </div>
           </div>
 
-          {}
           {/* RIGHT COLUMN - HIGH-TECH INTERACTIVE CONTROL HUB */}
           <div 
             className="lg:col-span-7 flex flex-col items-center justify-center"
             style={{ perspective: "1200px" }}
           >
-            {/* The 3D tilted container box */}
+            {/* 3D tilted container box */}
             <div
               ref={cardContainerRef}
               onMouseMove={handleMouseMove}
@@ -393,7 +369,6 @@ const Hero = () => {
                 transformStyle: "preserve-3d"
               }}
             >
-              {/* Dynamic Aura background that shifts color & expands when hovered */}
               <div 
                 className="absolute h-[420px] w-[420px] rounded-full animate-pulse-cyber transition-all duration-1000 pointer-events-none"
                 style={{
@@ -402,24 +377,20 @@ const Hero = () => {
                 }}
               ></div>
 
-              {/* Glowing Coordinate HUD Compass Rings */}
               <div 
                 className="absolute inset-0 flex items-center justify-center pointer-events-none"
                 style={{ transform: "translateZ(-50px)", '--orbit-speed': currentConfig.speed }}
               >
-                {/* Dashed outer ring */}
                 <div className={`absolute h-[510px] w-[510px] rounded-full border border-dashed animate-rotate-counter opacity-20 transition-all duration-1000 ${
                   activeMode === 'overclock' ? 'border-fuchsia-500' : activeMode === 'hyper' ? 'border-indigo-500' : 'border-cyan-500'
                 }`}></div>
                 
-                {/* Tech calipers / ticks border */}
                 <div className={`absolute h-[380px] w-[380px] rounded-full border-2 border-dotted animate-rotate-clockwise opacity-30 transition-all duration-1000 ${
                   activeMode === 'overclock' ? 'border-pink-500' : activeMode === 'hyper' ? 'border-purple-500' : 'border-cyan-400'
                 }`}></div>
               </div>
 
-              {}
-              {/* CARD 1: PORTABLE TABBED IDE & WORKSPACE (Top Left Overlay) */}
+              {/* CARD 1: PORTABLE TABBED IDE */}
               <div 
                 className="absolute top-2 left-2 z-20 w-80 rounded-2xl border border-slate-800/80 bg-slate-950/85 p-3.5 shadow-3xl backdrop-blur-xl transition-all duration-500 overflow-hidden"
                 style={{ 
@@ -427,10 +398,8 @@ const Hero = () => {
                   boxShadow: `0 20px 50px -15px ${currentConfig.glow}`
                 }}
               >
-                {/* Top glow boundary */}
                 <div className={`absolute left-0 top-0 h-[2.5px] w-full transition-colors duration-1000 bg-gradient-to-r ${currentConfig.class}`}></div>
                 
-                {/* Window Header controls & Interactive Tabs */}
                 <div className="flex flex-col gap-2.5 mb-3 pb-2 border-b border-slate-900">
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-1.5">
@@ -441,7 +410,6 @@ const Hero = () => {
                     <span className="font-mono text-[8px] uppercase tracking-widest text-slate-500 font-bold">workspace.io</span>
                   </div>
 
-                  {/* Interactive Tab bar */}
                   <div className="flex items-center gap-1.5">
                     {["engine.log", "App.tsx", "mode.json"].map((tab) => {
                       const isActive = activeTab === tab;
@@ -465,9 +433,7 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Tab Dynamic Content */}
                 <div className="min-h-[105px] flex flex-col justify-center">
-                  
                   {activeTab === "engine.log" && (
                     <div className="font-mono text-[10px] leading-[1.6] text-slate-300 flex flex-col gap-1.5 justify-end">
                       {terminalLogs.map((log, idx) => (
@@ -506,30 +472,24 @@ const Hero = () => {
                       <span className="text-slate-500">&#125;</span>
                     </div>
                   )}
-
                 </div>
               </div>
 
-              {}
-              {/* CENTRAL REACTOR CORE (Glass Orb & Premium Portrait Frame) */}
+              {/* CENTRAL REACTOR CORE */}
               <div 
                 className="group relative z-10 flex flex-col items-center justify-center transition-all duration-75"
                 style={{ transform: "translateZ(30px)" }}
               >
-                {/* Back glowing aura */}
                 <div className={`absolute -inset-10 rounded-full transition-all duration-1000 blur-2xl opacity-60 ${
                   activeMode === 'overclock' ? 'bg-fuchsia-500/25' : activeMode === 'hyper' ? 'bg-indigo-500/20' : 'bg-cyan-500/20'
                 }`}></div>
 
-                {/* Cyber calipers ring */}
                 <div className={`absolute -inset-6 rounded-full border border-double animate-rotate-clockwise opacity-45 transition-colors duration-1000 ${
                   activeMode === 'overclock' ? 'border-rose-500/40' : activeMode === 'hyper' ? 'border-indigo-400/30' : 'border-cyan-400/30'
                 }`}></div>
 
-                {/* Outer Glass Shield with Sci-Fi Viewfinder Corner Brackets */}
                 <div className="relative rounded-full border border-slate-800/85 bg-slate-900/45 p-4 backdrop-blur-3xl shadow-2xl">
                   
-                  {/* Glowing corners framing the portrait */}
                   <div className={`absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 transition-colors duration-500 rounded-tl-2xl ${
                     activeMode === 'overclock' ? 'border-fuchsia-500/80' : activeMode === 'hyper' ? 'border-indigo-400/80' : 'border-cyan-400/80'
                   }`}></div>
@@ -545,20 +505,15 @@ const Hero = () => {
 
                   <div className="absolute inset-0 rounded-full bg-[radial-gradient(#334155_1.2px,transparent_1.2px)] bg-[size:12px_12px] opacity-30 pointer-events-none"></div>
 
-                  {/* PORTRAIT CORE CONTAINER - Crystal clear with no overlapping visual overlays */}
                   <div className="relative rounded-full overflow-hidden w-[196px] h-[196px] flex items-center justify-center bg-slate-950 border border-slate-850">
-                    
-                    {/* Portrait Image - Rendered fully clean and crisp, completely free of scanning bars or dark tint layers */}
                     <img
                       src={PERSONAL_INFO.avatar}
                       alt={PERSONAL_INFO.name}
                       className="absolute inset-0 z-10 w-full h-full object-cover select-none"
                     />
 
-                    {/* Gradient depth masking (Bottom portion fade-out only for framing integration) */}
                     <div className="absolute inset-x-0 bottom-0 h-1/4 z-20 pointer-events-none bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent"></div>
 
-                    {/* Face tracking bounding target bracket (offset slightly forward to create depth without blocking profile image clarity) */}
                     <div 
                       className={`absolute z-30 pointer-events-none w-[110px] h-[110px] border border-dashed transition-all duration-300 flex flex-col justify-between p-1 opacity-65 ${
                         activeMode === 'overclock' ? 'border-rose-400/70' : activeMode === 'hyper' ? 'border-purple-400/70' : 'border-cyan-400/70'
@@ -577,7 +532,6 @@ const Hero = () => {
                       </div>
                     </div>
 
-                    {/* Central Cybernetic Reactor Graphics Layer */}
                     <svg 
                       className={`relative z-40 w-[156px] h-[156px] transition-all duration-1000 pointer-events-none ${
                         activeMode === 'overclock' 
@@ -597,7 +551,6 @@ const Hero = () => {
                   </div>
                 </div>
 
-                {/* Core Status indicator tag */}
                 <div className={`mt-5 inline-flex items-center gap-2 rounded-full border px-4 py-1.5 shadow-lg backdrop-blur-xl transition-all duration-500 ${
                   activeMode === 'overclock' 
                     ? 'border-fuchsia-500/40 bg-fuchsia-950/80 text-fuchsia-300' 
@@ -614,8 +567,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              {}
-              {/* CARD 2: SYSTEM TELEMETRY MONITOR (Bottom Right Overlay) */}
+              {/* CARD 2: SYSTEM TELEMETRY MONITOR */}
               <div 
                 className="absolute bottom-4 right-1 z-20 w-64 rounded-2xl border border-slate-850 bg-slate-950/90 p-4 shadow-3xl backdrop-blur-xl transition-all duration-500"
                 style={{ 
@@ -633,7 +585,6 @@ const Hero = () => {
                   </span>
                 </div>
 
-                {/* Oscillating Telemetry Waveform Graph */}
                 <div className="h-14 w-full flex items-end gap-1 overflow-hidden pt-2">
                   {[35, 60, 45, 80, 50, 75, 95, 65, 45, 55, 80, 90, 70, 50, 65].map((val, idx) => {
                     const modeMultiplier = activeMode === 'overclock' ? 1.3 : activeMode === 'hyper' ? 0.95 : 0.65;
@@ -654,9 +605,12 @@ const Hero = () => {
                 </div>
               </div>
 
-              {}
-              {/* ORBITAL TECH NODE BADGES - Upgraded to native high-fidelity SVGs */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+              {/* DYNAMIC ORBITAL TECH NODE BADGES */}
+              {/* Outer Container sets the Clockwise orbital spin trajectory */}
+              <div 
+                className="absolute inset-0 flex items-center justify-center pointer-events-none animate-rotate-clockwise"
+                style={{ '--orbit-speed': currentConfig.speed }}
+              >
                 {techStack.map((item, index) => {
                   const angles = [40, 135, 220, 315];
                   const angle = angles[index];
@@ -668,26 +622,32 @@ const Hero = () => {
                   return (
                     <div
                       key={index}
-                      className="absolute z-20 transition-transform duration-700 pointer-events-auto"
+                      className="absolute z-20 pointer-events-none"
                       style={{
                         transform: `translate(${x}px, ${y}px) translateZ(45px)`
                       }}
                     >
+                      {/* Inner Container applies Counter-Clockwise rotation to keep icons perfectly upright! */}
                       <div 
-                        className={`group relative flex h-11 w-11 items-center justify-center rounded-2xl border bg-slate-950/95 backdrop-blur-md transition-all duration-500 hover:scale-120 hover:-translate-y-1 ${
-                          activeMode === 'overclock' 
-                            ? 'border-fuchsia-500/40 shadow-[0_0_15px_rgba(236,72,153,0.3)]' 
-                            : activeMode === 'hyper'
-                            ? 'border-indigo-500/30 shadow-[0_0_15px_rgba(129,140,248,0.2)]'
-                            : 'border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.15)]'
-                        } ${item.colorClass}`}
+                        className="animate-rotate-counter pointer-events-auto"
+                        style={{ '--orbit-speed': currentConfig.speed }}
                       >
-                        <StackIcon className="w-5.5 h-5.5 filter drop-shadow" />
+                        <div 
+                          className={`group relative flex h-11 w-11 items-center justify-center rounded-2xl border bg-slate-950/95 backdrop-blur-md transition-all duration-500 hover:scale-110 hover:-translate-y-1 ${
+                            activeMode === 'overclock' 
+                              ? 'border-fuchsia-500/40 shadow-[0_0_15px_rgba(236,72,153,0.3)]' 
+                              : activeMode === 'hyper'
+                              ? 'border-indigo-500/30 shadow-[0_0_15px_rgba(129,140,248,0.2)]'
+                              : 'border-cyan-500/20 shadow-[0_0_15px_rgba(34,211,238,0.15)]'
+                          } ${item.colorClass}`}
+                        >
+                          <StackIcon className="w-5.5 h-5.5 filter drop-shadow" />
 
-                        {/* Hover description tooltip */}
-                        <div className="absolute top-12 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30 w-36 bg-slate-950 border border-slate-850 p-2 rounded-lg text-[9px] text-center shadow-xl">
-                          <p className="font-bold text-white">{item.name}</p>
-                          <p className="text-slate-400 mt-0.5">{item.desc}</p>
+                          {/* Hover description tooltip */}
+                          <div className="absolute top-14 left-1/2 -translate-x-1/2 scale-0 group-hover:scale-100 transition-all duration-300 pointer-events-none z-30 w-36 bg-slate-950 border border-slate-850 p-2 rounded-lg text-center shadow-xl">
+                            <p className="font-bold text-white text-[10px] tracking-wider uppercase">{item.name}</p>
+                            <p className="text-slate-400 mt-1 text-[9px] leading-tight">{item.desc}</p>
+                          </div>
                         </div>
                       </div>
                     </div>
@@ -697,8 +657,7 @@ const Hero = () => {
 
             </div>
 
-            {}
-            {/* INTERACTIVE MODE CONTROLLER HUD (Segmented Core Trigger) */}
+            {/* INTERACTIVE MODE CONTROLLER HUD */}
             <div className="relative mt-8 z-30 flex items-center justify-center bg-slate-950/60 p-2 border border-slate-900 rounded-2xl max-w-[420px] w-full backdrop-blur-xl">
               <div className="absolute inset-0 rounded-2xl bg-[radial-gradient(#1e293b_1px,transparent_1px)] bg-[size:10px_10px] opacity-10 pointer-events-none"></div>
               
@@ -708,10 +667,10 @@ const Hero = () => {
                   let btnColor = "text-slate-400 hover:text-white";
                   if (active) {
                     btnColor = m === 'overclock' 
-                      ? "bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white shadow-lg shadow-fuchsia-500/20" 
+                      ? "bg-gradient-to-r from-fuchsia-500 to-rose-500 text-white shadow-[0_0_15px_rgba(236,72,153,0.35)]" 
                       : m === 'hyper'
-                      ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-lg shadow-indigo-500/20"
-                      : "bg-gradient-to-r from-cyan-400 to-teal-500 text-slate-950 shadow-lg shadow-cyan-400/20 font-bold";
+                      ? "bg-gradient-to-r from-indigo-500 to-purple-500 text-white shadow-[0_0_15px_rgba(99,102,241,0.35)]"
+                      : "bg-gradient-to-r from-cyan-400 to-teal-500 text-slate-950 shadow-[0_0_15px_rgba(34,211,238,0.35)] font-bold";
                   }
 
                   return (
@@ -728,7 +687,6 @@ const Hero = () => {
             </div>
 
           </div>
-
         </div>
       </div>
     </section>

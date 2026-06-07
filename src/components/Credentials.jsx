@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
-import { CERTIFICATES, PERSONAL_INFO } from "../data/portfolioData";
+import { PERSONAL_INFO } from "../data/portfolioData";
+import { CERTIFICATES } from "../data/certificateData";
 import {
   AwardIcon,
   BarsIcon,
@@ -112,7 +113,7 @@ const Credentials = () => {
   return (
     <section
       id="credentials"
-      className="relative border-t border-slate-900 bg-slate-950 py-20 sm:py-24"
+      className="relative  py-20 sm:py-2"
     >
       {" "}
       <div className="absolute right-0 top-1/3 -z-10 h-80 w-80 rounded-full bg-indigo-500/5 blur-3xl"></div>{" "}
@@ -122,7 +123,7 @@ const Credentials = () => {
         <div className="mb-10 sm:mb-12 flex flex-col gap-6">
           {" "}
           <SectionHeader
-            title="Verified Credentials"
+            title="Verified Certificates"
             description="Browse verified certificates and explore professional achievements."
           />{" "}
           <div className="flex items-center gap-4 self-start">

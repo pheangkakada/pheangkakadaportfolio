@@ -48,7 +48,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="border-t border-slate-900 bg-slate-950 py-24">
+    <section id="projects" className=" py-24">
       <div className="container mx-auto px-6 md:px-12">
         <SectionHeader
           title="My Projects"
