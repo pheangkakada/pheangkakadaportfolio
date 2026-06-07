@@ -3,7 +3,7 @@ import profileData from "./profileData";
 export async function askAI(message) {
   try {
     const response = await fetch(
-      "http://localhost:3001/api/chat",
+      "https://pheangkakadaportfolio.onrender.com/api/chat",
       {
         method: "POST",
 
