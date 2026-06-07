@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import { Routes, Route } from "react-router-dom";
+
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -8,20 +10,14 @@ import Credentials from './components/Credentials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 
-export default function App() {
-  const [theme, setTheme] = useState(() => localStorage.getItem("portfolio-theme") || "dark");
+import AiAgent from './AIagent/AiagentUI';
 
-  useEffect(() => {
-    localStorage.setItem("portfolio-theme", theme);
-    document.documentElement.dataset.theme = theme;
-  }, [theme]);
-
-  const toggleTheme = () => {
-    setTheme((currentTheme) => (currentTheme === "dark" ? "light" : "dark"));
-  };
-
+function Home({ theme, toggleTheme }) {
   return (
-    <div data-theme={theme} className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
+    <div
+      data-theme={theme}
+      className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200"
+    >
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       <main>
@@ -35,5 +31,41 @@ export default function App() {
 
       <Footer />
     </div>
+  );
+}
+
+export default function App() {
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("portfolio-theme") || "dark"
+  );
+
+  useEffect(() => {
+    localStorage.setItem("portfolio-theme", theme);
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((currentTheme) =>
+      currentTheme === "dark" ? "light" : "dark"
+    );
+  };
+
+  return (
+    <Routes>
+      <Route
+        path="/"
+        element={
+          <Home
+            theme={theme}
+            toggleTheme={toggleTheme}
+          />
+        }
+      />
+
+      <Route
+        path="/AiagentUI"
+        element={<AiAgent />}
+      />
+    </Routes>
   );
 }
