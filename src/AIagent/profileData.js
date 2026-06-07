@@ -3,7 +3,11 @@ const profileData = {
 
   role: "Full-Stack Software Engineer & Designer",
 
-  location: "Phnom Penh, Cambodia",
+  location: {
+    city: "Phnom Penh",
+    country: "Cambodia",
+    url: "https://maps.app.goo.gl/DXnJboMwBs4dj9N99",
+  },
 
   about:
     "Frontend and full-stack developer focused on modern UI, AI systems, and scalable web applications.",
@@ -114,6 +118,8 @@ const profileData = {
       about: "When user asks about Kakada, answer professionally and clearly.",
     },
   },
+
+  birthday: "1998-08-15",
 
   
 
