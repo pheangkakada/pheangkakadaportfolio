@@ -30,14 +30,14 @@ const About = () => {
               </div>
 
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-5 tracking-tight leading-snug max-w-lg">
-                Architecting robust systems at the intersection of{" "}
+                Creating beautiful user experiences with{" "}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-indigo-400">
-                  theory and production.
+                  modern frontend technologies.
                 </span>
               </h3>
 
               <p className="text-slate-400 text-sm md:text-base leading-relaxed mb-8 max-w-2xl">
-                I am a driven Computer Science major dedicated to mastering complex computational logic, system architectures, and modern full-stack development. By merging academic frameworks with rigorous independent software building, I deploy clean, secure, and production-ready systems.
+                I'm a Computer Science student at the Royal Univercity of Phnom Penh. I am a passionate frontend developer focused on building modern, responsive, and user-centered web experiences. By combining clean design principles with modern frontend technologies, I create fast, interactive, and production-ready interfaces that deliver seamless user experiences.
               </p>
 
               <div className="flex items-center gap-6 pt-6 border-t border-slate-800/80">
@@ -70,7 +70,7 @@ const About = () => {
               <ul className="space-y-4 relative z-10">
                 <li className="flex justify-between items-end border-b border-slate-800/80 pb-2">
                   <span className="text-xs text-slate-500 font-mono">Specialization</span>
-                  <span className="text-sm text-slate-300 font-medium text-right font-mono">Full-Stack Arch</span>
+                  <span className="text-sm text-slate-300 font-medium text-right font-mono">Frontend Design</span>
                 </li>
                 <li className="flex justify-between items-end border-b border-slate-800/80 pb-2">
                   <span className="text-xs text-slate-500 font-mono">Network_ID</span>
@@ -84,8 +84,7 @@ const About = () => {
             </div>
 
             <div className="bg-gradient-to-r from-cyan-950 to-indigo-950 rounded-2xl border border-cyan-800/50 p-6 shadow-xl shadow-cyan-900/20 relative overflow-hidden flex-1 flex flex-col justify-center group">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 blur-3xl rounded-full group-hover:bg-cyan-500/30 transition-colors"></div>
-
+              {/* <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 blur-3xl rounded-full group-hover:bg-cyan-500/30 transition-colors"></div> */}
               <div className="relative z-10">
                 <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2.5 h-2.5 border border-cyan-400 rounded-sm flex items-center justify-center">
@@ -106,7 +105,6 @@ const About = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
           <div className="lg:col-span-5 bg-slate-900/30 border border-slate-700/50 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden backdrop-blur-md shadow-2xl text-left">
-            <div className="absolute inset-0 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:16px_16px] opacity-20 pointer-events-none"></div>
             <div className="absolute top-0 right-0 p-4 text-[9px] font-mono text-cyan-400/40 tracking-widest">
               TELEMETRY_INSPECTOR_V4.0
             </div>
@@ -176,15 +174,15 @@ const About = () => {
                   <div className="space-y-3 relative z-10">
                     <div className="flex justify-between items-end">
                       <span className="text-slate-500">Academic_Standing:</span>
-                      <span className="text-cyan-300 font-bold border-b border-slate-800 border-dashed pb-0.5">{activeNode.gpa}</span>
+                      <span className="text-cyan-300 font-bold pb-0.5">{activeNode.gpa}</span>
                     </div>
                     <div className="flex justify-between items-end">
                       <span className="text-slate-500">Timeline_Scope:</span>
-                      <span className="text-slate-300 border-b border-slate-800 border-dashed pb-0.5">{activeNode.period}</span>
+                      <span className="text-slate-300  pb-0.5">{activeNode.period}</span>
                     </div>
                     <div className="flex justify-between items-end">
                       <span className="text-slate-500">Verification_Hash:</span>
-                      <span className="text-slate-500 truncate w-32 text-right border-b border-slate-800 border-dashed pb-0.5">0x{activeNode.id}a7f92b4</span>
+                      <span className="text-slate-500 truncate w-32 text-right  pb-0.5">0x{activeNode.id}a7f92b4</span>
                     </div>
                   </div>
                 </div>

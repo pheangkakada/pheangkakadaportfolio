@@ -1,6 +1,8 @@
 import { useEffect, useMemo, useState } from "react";
 import { PERSONAL_INFO } from "../data/portfolioData";
 import { CERTIFICATES } from "../data/certificateData";
+import { motion } from "framer-motion";
+import { Grid2X2, Rows3 } from "lucide-react";
 import {
   AwardIcon,
   BarsIcon,
@@ -111,10 +113,7 @@ const Credentials = () => {
     return () => clearInterval(interval);
   }, [isDecrypting]);
   return (
-    <section
-      id="credentials"
-      className="relative  py-20 sm:py-2"
-    >
+    <section id="credentials" className="relative  py-20 sm:py-2">
       {" "}
       <div className="absolute right-0 top-1/3 -z-10 h-80 w-80 rounded-full bg-indigo-500/5 blur-3xl"></div>{" "}
       <div className="container mx-auto px-4 sm:px-6 md:px-10 xl:px-12">
@@ -159,60 +158,150 @@ const Credentials = () => {
               />{" "}
             </div>{" "}
             {/* ACTIONS */}{" "}
-            <div className="flex flex-wrap items-center gap-3">
-              {" "}
-              {/* SORT */}{" "}
-              <div className="flex items-center gap-2 rounded-2xl border border-slate-800 bg-slate-950 px-4 py-3">
-                {" "}
-                <span className="text-[10px] font-mono uppercase text-slate-500">
-                  {" "}
-                  Sort{" "}
-                </span>{" "}
-                <select
-                  value={sortBy}
-                  onChange={(e) => setSortBy(e.target.value)}
-                  className="cursor-pointer border-none bg-transparent text-xs text-slate-300 outline-none"
-                >
-                  {" "}
-                  <option value="newest"> Newest </option>{" "}
-                  <option value="oldest"> Oldest </option>{" "}
-                  <option value="alphabetical"> A-Z </option>{" "}
-                </select>{" "}
-              </div>{" "}
-              {/* LAYOUT */}{" "}
-              <div className="flex items-center gap-1 rounded-2xl border border-slate-800 bg-slate-950 p-1">
-                {" "}
-                <button
-                  onClick={() => setLayoutMode("grid")}
-                  className={`rounded-xl px-4 py-2 text-xs font-medium transition-all ${layoutMode === "grid" ? "bg-indigo-500 text-white" : "text-slate-400 hover:text-white"}`}
-                >
-                  {" "}
-                  Grid{" "}
-                </button>{" "}
-                <button
-                  onClick={() => setLayoutMode("list")}
-                  className={`flex items-center gap-2 rounded-xl px-4 py-2 text-xs font-medium transition-all ${layoutMode === "list" ? "bg-indigo-500 text-white" : "text-slate-400 hover:text-white"}`}
-                >
-                  {" "}
-                  <BarsIcon className="h-3.5 w-3.5" /> Showcase{" "}
-                </button>{" "}
-              </div>{" "}
-            </div>{" "}
-          </div>{" "}
-          {/* FILTERS */}{" "}
-          <div className="mt-5 flex flex-wrap gap-2 border-t border-slate-800/70 pt-5">
-            {" "}
-            {availableIssuers.map((issuer) => (
+            <div className="relative flex items-center rounded-2xl border border-slate-800/70 bg-slate-900/30 p-1.5 backdrop-blur-xl overflow-hidden">
+              {/* Animated Background */}
+              <motion.div
+                layoutId="layoutToggleBg"
+                transition={{
+                  type: "spring",
+                  stiffness: 320,
+                  damping: 26,
+                }}
+                className="
+      absolute top-1.5 bottom-1.5
+      rounded-xl
+      border border-cyan-400/30
+      bg-gradient-to-br
+      from-cyan-400/20
+      via-sky-400/10
+      to-blue-400/10
+      shadow-[0_0_25px_rgba(34,211,238,0.22)]
+      backdrop-blur-xl
+    "
+                style={{
+                  width: "calc(50% - 6px)",
+                  left: layoutMode === "grid" ? "6px" : "calc(50% + 0px)",
+                }}
+              />
+
+              {/* Grid Button */}
               <button
-                key={issuer}
-                onClick={() => setSelectedIssuer(issuer)}
-                className={`rounded-full border px-4 py-2 text-xs font-medium transition-all ${selectedIssuer === issuer ? "border-indigo-500/40 bg-indigo-500/15 text-indigo-300" : "border-slate-800 bg-slate-950/50 text-slate-400 hover:border-slate-700 hover:text-white"}`}
+                onClick={() => setLayoutMode("grid")}
+className={`
+  relative z-10
+  flex flex-1 items-center justify-center
+  gap-2
+  rounded-xl
+  px-3 py-2.5
+  sm:min-w-[120px] sm:px-5 sm:py-3
+  text-center
+  text-[11px] sm:text-xs
+  font-semibold tracking-wide
+  transition-all duration-300
+  ${
+    layoutMode === "grid"
+      ? "text-cyan-200"
+      : "text-slate-400 hover:text-slate-200"
+  }
+`}
               >
-                {" "}
-                {issuer}{" "}
+                <Grid2X2 className="h-4 w-4" />
+                Grid
               </button>
-            ))}{" "}
+
+              {/* Showcase Button */}
+              <button
+                onClick={() => setLayoutMode("list")}
+                className={`
+      relative z-10
+      flex min-w-[120px] items-center justify-center gap-2
+      rounded-xl
+      px-5 py-3
+      text-xs font-semibold tracking-wide
+      transition-all duration-300
+      ${
+        layoutMode === "list"
+          ? "text-cyan-200"
+          : "text-slate-400 hover:text-slate-200"
+      }
+    `}
+              >
+                <Rows3 className="h-4 w-4" />
+                Showcase
+              </button>
+            </div>
           </div>{" "}
+          {/* FILTERS */} {/* FILTERS */}
+          <div className="mt-6 border-t border-slate-800/70 pt-6">
+            <div className="flex flex-wrap gap-3">
+              {availableIssuers.map((issuer) => {
+                const isActive = selectedIssuer === issuer;
+
+                return (
+                  <button
+                    key={issuer}
+                    onClick={() => setSelectedIssuer(issuer)}
+                    className={`
+            relative overflow-hidden
+            rounded-2xl px-5 py-3
+            text-xs font-semibold tracking-wide
+            transition-all duration-500
+            group
+            ${isActive ? "text-cyan-400" : "text-slate-400 hover:text-cyan-400"}
+          `}
+                  >
+                    {/* Animated Background */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeCredentialFilter"
+                        transition={{
+                          type: "spring",
+                          stiffness: 280,
+                          damping: 24,
+                        }}
+                        className="
+                absolute inset-0
+                rounded-2xl
+                border border-cyan-500/30
+                bg-gradient-to-br
+                from-cyan-500/20
+                via-blue-500/10
+                to-cyan-500/10
+                shadow-[0_0_30px_rgba(99,102,241,0.25)]
+                backdrop-blur-xl
+              "
+                      />
+                    )}
+
+                    {/* Hover Glow */}
+                    <div
+                      className="
+              absolute inset-0 rounded-2xl
+              opacity-0 group-hover:opacity-100
+              transition-opacity duration-300
+              bg-white/[0.03]
+            "
+                    />
+
+                    {/* Border */}
+                    <div
+                      className={`
+              absolute inset-0 rounded-2xl border
+              transition-colors duration-300
+              ${
+                isActive
+                  ? "border-transparent"
+                  : "border-slate-800 group-hover:border-slate-700"
+              }
+            `}
+                    />
+
+                    <span className="relative z-10">{issuer}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
         </div>{" "}
         {/* GRID MODE */}{" "}
         {layoutMode === "grid" && (

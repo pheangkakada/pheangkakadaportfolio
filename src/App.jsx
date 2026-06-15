@@ -12,16 +12,24 @@ import Footer from './components/Footer';
 
 import AiAgent from './AIagent/AiagentUI';
 
-function Home({ theme, toggleTheme }) {
+function Home({ theme, toggleTheme, portfolioMode, setPortfolioMode }) {
+  const selectionClass =
+    portfolioMode === "overclock"
+      ? "selection:bg-fuchsia-500/30 selection:text-rose-200"
+      : portfolioMode === "hyper"
+        ? "selection:bg-indigo-500/30 selection:text-indigo-200"
+        : "selection:bg-cyan-500/30 selection:text-cyan-200";
+
   return (
     <div
       data-theme={theme}
-      className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-cyan-500/30 selection:text-cyan-200"
+      data-portfolio-mode={portfolioMode}
+      className={`min-h-screen bg-slate-950 text-slate-200 font-sans ${selectionClass}`}
     >
       <Navbar theme={theme} onToggleTheme={toggleTheme} />
 
       <main>
-        <Hero />
+        <Hero activeMode={portfolioMode} onModeChange={setPortfolioMode} />
         <About />
         <Credentials />
         <Skills />
@@ -38,11 +46,18 @@ export default function App() {
   const [theme, setTheme] = useState(
     () => localStorage.getItem("portfolio-theme") || "dark"
   );
+  const [portfolioMode, setPortfolioMode] = useState(
+    () => localStorage.getItem("portfolio-mode") || "stable"
+  );
 
   useEffect(() => {
     localStorage.setItem("portfolio-theme", theme);
     document.documentElement.dataset.theme = theme;
   }, [theme]);
+
+  useEffect(() => {
+    localStorage.setItem("portfolio-mode", portfolioMode);
+  }, [portfolioMode]);
 
   const toggleTheme = () => {
     setTheme((currentTheme) =>
@@ -58,6 +73,8 @@ export default function App() {
           <Home
             theme={theme}
             toggleTheme={toggleTheme}
+            portfolioMode={portfolioMode}
+            setPortfolioMode={setPortfolioMode}
           />
         }
       />

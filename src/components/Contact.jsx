@@ -107,7 +107,7 @@ const Contact = () => {
 
           {/* TELEGRAM */}
           <a
-            href="https://t.me/yourtelegram"
+            href="https://t.me/pheangkakada"
             target="_blank"
             rel="noopener noreferrer"
             className="group relative overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900/40 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40"

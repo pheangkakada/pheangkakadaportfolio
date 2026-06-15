@@ -10,34 +10,40 @@ import {
   SiExpress,
   SiMongodb,
   SiMysql,
-  SiDocker,
+  SiLaravel,
   SiGit,
   SiGithub,
   SiFigma,
   SiVercel,
   SiRender,
+  SiCss,
+  SiHtml5,
+  SiXcode,
+  SiOpenai,
+  SiDocker,
+  SiSpring,
 } from "react-icons/si";
-import SectionHeader from './SectionHeader';
-
-
-
+import SectionHeader from "./SectionHeader";
+import { TbBrandAdobePhotoshop } from "react-icons/tb";
+import { TbBrandCSharp } from "react-icons/tb";
+import { FaJava } from "react-icons/fa";
 
 const learningNow = [
   {
-    name: "AWS",
-    icon: <SiReact className="text-orange-400 text-xl" />,
+    name: "CSharp",
+    icon: <TbBrandCSharp className="text-blue-400 text-2xl" />
   },
   {
     name: "Docker",
-    icon: <SiReact className="text-sky-400 text-xl" />,
+    icon: <SiDocker className="text-sky-400 text-xl" />,
   },
   {
-    name: "Kubernetes",
-    icon: <SiReact className="text-blue-400 text-xl" />,
+    name: "JAVA",
+    icon: <FaJava className="text-orange-400 text-2xl" />,
   },
   {
-    name: "System Design",
-    icon: <span className="text-xl">🏗️</span>,
+    name: "Spring Framework",
+    icon: <SiSpring className="text-green-400 text-xl" />,
   },
 ];
 const skillCategories = [
@@ -52,16 +58,16 @@ const skillCategories = [
         icon: <SiReact className="text-cyan-400 text-xl" />,
       },
       {
-        name: "Next.js",
-        icon: <SiNextdotjs className="text-white text-xl" />,
+        name: "HTML",
+        icon: <SiHtml5 className="text-orange-400 text-xl" />,
       },
       {
         name: "JavaScript",
         icon: <SiJavascript className="text-yellow-400 text-xl" />,
       },
       {
-        name: "TypeScript",
-        icon: <SiTypescript className="text-blue-400 text-xl" />,
+        name: "CSS",
+        icon: <SiCss className="text-blue-400 text-xl" />,
       },
       {
         name: "Tailwind CSS",
@@ -84,6 +90,10 @@ const skillCategories = [
         name: "Express.js",
         icon: <SiExpress className="text-slate-300 text-xl" />,
       },
+       {
+        name: "Laravel",
+        icon: <SiLaravel className="text-red-500 text-xl" />,
+      },
       {
         name: "MongoDB",
         icon: <SiMongodb className="text-green-400 text-xl" />,
@@ -92,10 +102,7 @@ const skillCategories = [
         name: "MySQL",
         icon: <SiMysql className="text-blue-500 text-xl" />,
       },
-      {
-        name: "Docker",
-        icon: <SiDocker className="text-sky-400 text-xl" />,
-      },
+     
     ],
   },
 
@@ -110,8 +117,8 @@ const skillCategories = [
         icon: <SiFigma className="text-pink-400 text-xl" />,
       },
       {
-        name: "Wireframing",
-        icon: <span className="text-xl">📐</span>,
+        name: "Adobe Photoshop",
+        icon: <TbBrandAdobePhotoshop className="text-blue-400 text-2xl" />,
       },
       {
         name: "Prototyping",
@@ -142,8 +149,8 @@ const favoriteStack = [
     icon: <SiReact className="text-cyan-400 text-xl" />,
   },
   {
-    name: "Next.js",
-    icon: <SiNextdotjs className="text-white text-xl" />,
+    name: "JavaScript",
+    icon: <SiJavascript className="text-yellow-400 text-xl" />,
   },
   {
     name: "Node.js",
@@ -158,17 +165,14 @@ const favoriteStack = [
     icon: <SiTailwindcss className="text-sky-400 text-xl" />,
   },
   {
-    name: "Vercel",
-    icon: <SiVercel className="text-white text-xl" />,
+    name: "ChatGPT API",
+    icon: <SiOpenai className="text-white text-xl" />,
   },
 ];
 
 const Skills = () => {
   return (
-    <section
-      id="skills"
-      className="  relative py-24"
-    >
+    <section id="skills" className="  relative py-24 ">
       <div className="absolute top-1/4 right-0 w-[32rem] h-[32rem] bg-cyan-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
       <div className="absolute bottom-1/3 left-0 w-[32rem] h-[32rem] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
@@ -285,7 +289,7 @@ const Skills = () => {
           </div>
         </div>
         {/* Fav Stack */}
-        <div className="mt-16 rounded-3xl border border-slate-800/80 bg-slate-900/30 p-8">
+        <div className="mt-16 rounded-2xl border border-slate-800/80 p-8">
           <h3 className="text-xl font-bold text-white mb-6">Favorite Stack</h3>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -293,16 +297,16 @@ const Skills = () => {
               <div
                 key={tech.name}
                 className="
-        flex flex-col items-center
-        gap-3
-        p-5
-        rounded-2xl
-        bg-slate-950/50
-        border border-slate-800
-        hover:border-cyan-500/20
-        hover:-translate-y-1
-        transition-all duration-300
-        "
+flex flex-col items-center
+gap-3
+p-5
+rounded-2xl
+border-slate-800/80 bg-slate-900/30  dark:bg-white/5
+border border-slate-200 dark:border-slate-800
+hover:border-cyan-500/20
+hover:-translate-y-1
+transition-all duration-300
+"
               >
                 {tech.icon}
 
@@ -312,16 +316,16 @@ const Skills = () => {
           </div>
         </div>
         {/* Currently Learning */}
-      <div className="mt-16">
-  <h3 className="text-xl font-bold text-white mb-6">
-    Currently Learning
-  </h3>
+        <div className="mt-16">
+          <h3 className="text-xl font-bold text-white mb-6">
+            Currently Learning
+          </h3>
 
-  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-    {learningNow.map((item) => (
-      <div
-        key={item.name}
-        className="
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {learningNow.map((item) => (
+              <div
+                key={item.name}
+                className="
         flex flex-col items-center
         gap-3
         p-5
@@ -331,16 +335,14 @@ const Skills = () => {
         hover:border-emerald-500/20
         transition-all duration-300
         "
-      >
-        {item.icon}
+              >
+                {item.icon}
 
-        <span className="text-slate-300 text-sm">
-          {item.name}
-        </span>
-      </div>
-    ))}
-  </div>
-</div>
+                <span className="text-slate-300 text-sm">{item.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
         {/* Bottom Stats */}
         <div className="grid md:grid-cols-3 gap-6 mt-16">
           <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
