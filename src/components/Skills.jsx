@@ -1,4 +1,6 @@
 import { Cpu, Database, Palette } from "lucide-react";
+import { motion } from "framer-motion";
+import { VscVscode } from "react-icons/vsc";
 
 import {
   SiReact,
@@ -24,6 +26,7 @@ import {
   SiSpring,
 } from "react-icons/si";
 import SectionHeader from "./SectionHeader";
+import ScrollReveal, { revealItem, staggerContainer } from "./ScrollReveal";
 import { TbBrandAdobePhotoshop } from "react-icons/tb";
 import { TbBrandCSharp } from "react-icons/tb";
 import { FaJava } from "react-icons/fa";
@@ -87,14 +90,6 @@ const skillCategories = [
         icon: <SiNodedotjs className="text-green-500 text-xl" />,
       },
       {
-        name: "Express.js",
-        icon: <SiExpress className="text-slate-300 text-xl" />,
-      },
-       {
-        name: "Laravel",
-        icon: <SiLaravel className="text-red-500 text-xl" />,
-      },
-      {
         name: "MongoDB",
         icon: <SiMongodb className="text-green-400 text-xl" />,
       },
@@ -121,10 +116,6 @@ const skillCategories = [
         icon: <TbBrandAdobePhotoshop className="text-blue-400 text-2xl" />,
       },
       {
-        name: "Prototyping",
-        icon: <span className="text-xl">✨</span>,
-      },
-      {
         name: "Design Systems",
         icon: <span className="text-xl">🎨</span>,
       },
@@ -141,6 +132,7 @@ const extraTools = [
   { name: "GitHub", icon: <SiGithub /> },
   { name: "Vercel", icon: <SiVercel /> },
   { name: "Render", icon: <SiRender /> },
+  { name: "Visual Studio Code", icon: <VscVscode /> },
 ];
 
 const favoriteStack = [
@@ -177,18 +169,27 @@ const Skills = () => {
 
       <div className="absolute bottom-1/3 left-0 w-[32rem] h-[32rem] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none -z-10"></div>
 
-      <div className="container mx-auto px-6 md:px-12 relative z-10">
-        <SectionHeader
-          title="Skills & Technologies"
-          description="Technologies and tools I use to build modern web applications, scalable backend systems and user-focused digital experiences."
-          className="mb-14"
-        />
+      <div className="relative z-10 mx-auto w-full max-w-[1380px] px-5 sm:px-6 lg:px-10 xl:px-12">
+        <ScrollReveal>
+          <SectionHeader
+            title="Skills & Technologies"
+            description="Technologies and tools I use to build modern web applications, scalable backend systems and user-focused digital experiences."
+            className="mb-14"
+          />
+        </ScrollReveal>
 
         {/* Categories */}
-        <div className="grid lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid lg:grid-cols-3 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.16 }}
+        >
           {skillCategories.map((category) => (
-            <div
+            <motion.div
               key={category.title}
+              variants={revealItem}
               className="group bg-slate-900/40 backdrop-blur-xl
               border border-slate-800 rounded-3xl
               overflow-hidden
@@ -262,12 +263,12 @@ const Skills = () => {
                   ))}
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Tools */}
-        <div className="mt-14">
+        <ScrollReveal className="mt-14">
           <h3 className="text-xl font-bold text-white mb-6">
             Development Tools
           </h3>
@@ -287,9 +288,9 @@ const Skills = () => {
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
         {/* Fav Stack */}
-        <div className="mt-16 rounded-2xl border border-slate-800/80 p-8">
+        <ScrollReveal className="mt-16 rounded-2xl border border-slate-800/80 p-8">
           <h3 className="text-xl font-bold text-white mb-6">Favorite Stack</h3>
 
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
@@ -314,9 +315,9 @@ transition-all duration-300
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
         {/* Currently Learning */}
-        <div className="mt-16">
+        <ScrollReveal className="mt-16">
           <h3 className="text-xl font-bold text-white mb-6">
             Currently Learning
           </h3>
@@ -342,24 +343,30 @@ transition-all duration-300
               </div>
             ))}
           </div>
-        </div>
+        </ScrollReveal>
         {/* Bottom Stats */}
-        <div className="grid md:grid-cols-3 gap-6 mt-16">
-          <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
-            <div className="text-4xl font-bold text-cyan-400">6+</div>
+        <motion.div
+          className="grid md:grid-cols-3 gap-6 mt-16"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.22 }}
+        >
+          <motion.div variants={revealItem} className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
+            <div className="text-4xl font-bold text-cyan-400">5+</div>
             <div className="text-slate-400 mt-2">Projects Built</div>
-          </div>
+          </motion.div>
 
-          <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
-            <div className="text-4xl font-bold text-indigo-400">15+</div>
+          <motion.div variants={revealItem} className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
+            <div className="text-4xl font-bold text-indigo-400">10+</div>
             <div className="text-slate-400 mt-2">Technologies Used</div>
-          </div>
+          </motion.div>
 
-          <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
+          <motion.div variants={revealItem} className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-6 text-center">
             <div className="text-4xl font-bold text-emerald-400">2+</div>
             <div className="text-slate-400 mt-2">Years Learning</div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { motion } from "framer-motion";
 import { MILESTONES, PERSONAL_INFO } from '../data/portfolioData';
 import { ActivityIcon, ChevronRightIcon, CpuIcon, ShieldAltIcon, TerminalIcon } from './icons';
 import SectionHeader from './SectionHeader';
+import ScrollReveal, { revealItem, staggerContainer } from "./ScrollReveal";
 
 const About = () => {
   const [activeNodeId, setActiveNodeId] = useState(MILESTONES[0].id);
@@ -10,15 +12,23 @@ const About = () => {
 
   return (
     <section id="about" className="py-24 bg-slate-950  relative">
-      <div className="container mx-auto px-6 md:px-12">
-        <SectionHeader  
-          title="About Me & Education"
-          description="A quick look at my academic path, engineering focus, and current software development readiness."
-          className="mb-10"
-        />
+      <div className="mx-auto w-full max-w-[1380px] px-5 sm:px-6 lg:px-10 xl:px-12">
+        <ScrollReveal>
+          <SectionHeader  
+            title="About Me & Education"
+            description="A quick look at my academic path, engineering focus, and current software development readiness."
+            className="mb-10"
+          />
+        </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-left">
-          <div className="md:col-span-2 bg-gradient-to-br from-slate-900/80 to-slate-950/80 rounded-2xl border border-slate-700/50 p-8 shadow-xl relative overflow-hidden group hover:border-cyan-500/50 transition-colors duration-500">
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16 text-left"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.18 }}
+        >
+          <motion.div variants={revealItem} className="md:col-span-2 bg-gradient-to-br from-slate-900/80 to-slate-950/80 rounded-2xl border border-slate-700/50 p-8 shadow-xl relative overflow-hidden group hover:border-cyan-500/50 transition-colors duration-500">
             <div className="absolute -top-10 -right-10 p-4 opacity-5 group-hover:opacity-20 transition-opacity duration-700 transform group-hover:scale-110">
               <ShieldAltIcon className="w-48 h-48 text-cyan-400" />
             </div>
@@ -58,9 +68,9 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="md:col-span-1 flex flex-col gap-6">
+          <motion.div variants={revealItem} className="md:col-span-1 flex flex-col gap-6">
             <div className="bg-slate-900/60 rounded-2xl border border-slate-700/50 p-6 shadow-xl relative overflow-hidden flex-1 flex flex-col justify-center group hover:border-indigo-500/50 transition-colors duration-500">
               <div className="absolute inset-0 bg-[radial-gradient(#4f46e5_1px,transparent_1px)] [background-size:16px_16px] opacity-[0.03]"></div>
               <h4 className="text-[10px] font-mono text-indigo-400 uppercase tracking-widest mb-4 flex items-center gap-2">
@@ -86,25 +96,31 @@ const About = () => {
             <div className="bg-gradient-to-r from-cyan-950 to-indigo-950 rounded-2xl border border-cyan-800/50 p-6 shadow-xl shadow-cyan-900/20 relative overflow-hidden flex-1 flex flex-col justify-center group">
               {/* <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/20 blur-3xl rounded-full group-hover:bg-cyan-500/30 transition-colors"></div> */}
               <div className="relative z-10">
-                <div className="text-[10px] font-mono text-cyan-400 uppercase tracking-widest mb-3 flex items-center gap-2">
+                <div className="text-[10px] font-mono text-white uppercase tracking-widest mb-3 flex items-center gap-2">
                   <span className="w-2.5 h-2.5 border border-cyan-400 rounded-sm flex items-center justify-center">
-                    <span className="w-0.5 h-0.5 bg-cyan-400"></span>
+                    <span className="w-0.5 h-0.5 bg-white"></span>
                   </span>
                   Target Placement
                 </div>
                 <div className="text-xl font-bold text-white leading-tight drop-shadow-md">
-                  Summer 2027 <br />
-                  <span className="text-cyan-300 font-mono text-[17px] font-medium tracking-tight mt-1 inline-block">
-                    Software Engineer Intern
+                  Looking For Internship <br />
+                  <span className="text-white font-mono text-[17px] font-medium tracking-tight mt-1 inline-block">
+                    Frontend Engineer Intern
                   </span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-          <div className="lg:col-span-5 bg-slate-900/30 border border-slate-700/50 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden backdrop-blur-md shadow-2xl text-left">
+        <motion.div
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.14 }}
+        >
+          <motion.div variants={revealItem} className="lg:col-span-5 bg-slate-900/30 border border-slate-700/50 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative overflow-hidden backdrop-blur-md shadow-2xl text-left">
             <div className="absolute top-0 right-0 p-4 text-[9px] font-mono text-cyan-400/40 tracking-widest">
               TELEMETRY_INSPECTOR_V4.0
             </div>
@@ -207,16 +223,21 @@ const About = () => {
               <span>STATUS: ACCESS LEVEL APPROVED</span>
               <span className="text-emerald-500/70 font-bold">VERIFIED OK</span>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-7 relative flex flex-col text-left py-2">
+          <motion.div variants={revealItem} className="lg:col-span-7 relative flex flex-col text-left py-2">
             <div className="absolute left-6 md:left-[35px] top-6 bottom-6 w-px bg-slate-800 hidden md:block z-0"></div>
 
             <div className="space-y-4 relative z-10">
               {MILESTONES.map((milestone) => {
                 const isActive = activeNodeId === milestone.id;
                 return (
-                  <div key={milestone.id} onClick={() => setActiveNodeId(milestone.id)} className={`relative rounded-2xl p-6 transition-all duration-300 cursor-pointer group flex flex-col md:flex-row md:items-start gap-4 md:gap-8 overflow-hidden backdrop-blur-sm border ${isActive ? "border-cyan-500/50 bg-slate-900/60 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-cyan-900/10" : "border-slate-800/60 bg-slate-900/20 hover:border-slate-600/80 hover:bg-slate-900/40"}`}>
+                  <motion.div
+                    key={milestone.id}
+                    variants={revealItem}
+                    onClick={() => setActiveNodeId(milestone.id)}
+                    className={`relative rounded-2xl p-6 transition-all duration-300 cursor-pointer group flex flex-col md:flex-row md:items-start gap-4 md:gap-8 overflow-hidden backdrop-blur-sm border ${isActive ? "border-cyan-500/50 bg-slate-900/60 shadow-[0_8px_30px_rgb(0,0,0,0.12)] shadow-cyan-900/10" : "border-slate-800/60 bg-slate-900/20 hover:border-slate-600/80 hover:bg-slate-900/40"}`}
+                  >
                     {isActive && <div className="absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-cyan-400 to-indigo-500 rounded-l-2xl"></div>}
 
                     <div className="hidden md:flex flex-col items-center justify-center shrink-0 w-6 mt-1 relative z-10">
@@ -250,12 +271,12 @@ const About = () => {
                         <ChevronRightIcon className={`w-3 h-3 transition-transform duration-300 ${isActive ? "rotate-90 text-cyan-400" : "group-hover:translate-x-1 text-slate-400"}`} />
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   );

@@ -246,7 +246,7 @@ export default function AiagentUI() {
               </div>
               <div className="hidden sm:block">
                 <h1 className="text-sm font-bold tracking-wide">
-                  Intelligence Base
+                  Portfolio AI Assistant
                 </h1>
                 <p
                   className={`text-[10px] font-medium uppercase tracking-wider ${

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { motion } from "framer-motion";
+import avatar from "../assets/profile.png";
 
 // Native high-fidelity SVG Icons
 const ReactIcon = ({ className = "w-5 h-5" }) => (
@@ -89,6 +90,16 @@ export const LinkedinIcon = ({ className = "w-5 h-5" }) => (
     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
   </svg>
 );
+export const FacebookIcon = ({ className = "w-5 h-5" }) => (
+  <svg
+    className={className}
+    fill="currentColor"
+    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M24 12.073C24 5.405 18.627 0 12 0S0 5.405 0 12.073c0 6.019 4.388 11.009 10.125 11.927v-8.437H7.078v-3.49h3.047V9.413c0-3.017 1.792-4.686 4.533-4.686 1.313 0 2.686.235 2.686.235v2.96h-1.514c-1.491 0-1.956.931-1.956 1.887v2.264h3.328l-.532 3.49h-2.796V24C19.612 23.082 24 18.092 24 12.073z" />
+  </svg>
+);
 
 export const ExternalLinkIcon = ({ className = "w-5 h-5" }) => (
   <svg
@@ -126,20 +137,20 @@ export const CpuIcon = ({ className = "w-4 h-4" }) => (
 
 const PERSONAL_INFO = {
   name: "Kakada Pheang",
-  avatar: "https://avatars.githubusercontent.com/u/159972975?v=4",
+  avatar: avatar,
   role: "Creative Frontend Architect",
   tagline:
-    "I engineer ultra-modern, interactive digital ecosystems where flawless performance meets beautiful visual design.",
+    "I design and develop modern digital experiences by combining frontend development, backend solutions, and thoughtful UI/UX design. My focus is creating responsive, high-performance applications that deliver seamless functionality and engaging user experiences.",
   email: "Kakada.Pheang@dev.io",
   github: "https://github.com",
   linkedin: "https://linkedin.com",
+  telegram: "https://t.me/pheangkakada"
 };
 
 const roles = [
   "Frontend Engineer",
-  "React Innovator",
   "Creative UI/UX Architect",
-  "Interactive Developer",
+  "Backend Developer",
 ];
 
 const techStack = [
@@ -370,8 +381,8 @@ const Hero = ({ activeMode, onModeChange }) => {
         <div className="absolute inset-0 matrix-bg"></div>
       </div>
 
-      <div className="container relative z-10 mx-auto px-6 py-28 md:px-12 w-full">
-        <div className="grid w-full items-center gap-16 lg:grid-cols-12">
+      <div className="relative z-10 mx-auto w-full max-w-[1480px] px-5 py-24 sm:px-6 sm:py-28 lg:px-10 lg:py-32 xl:px-12 2xl:px-16">
+        <div className="grid w-full items-center gap-12 lg:grid-cols-12 xl:gap-20">
           {/* LEFT COLUMN - TEXT ARCHITECT */}
           <div className="lg:col-span-5 flex flex-col justify-center">
             <div
@@ -393,7 +404,7 @@ const Hero = ({ activeMode, onModeChange }) => {
               </span>
             </div>
 
-            <h1 className="max-w-2xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
+            <h1 className="max-w-2xl text-4xl font-black leading-[1.05] tracking-tight text-white sm:text-5xl xl:text-6xl">
               Hi, I'm{" "}
               <span
                 className={`bg-gradient-to-r bg-clip-text text-transparent transition-all duration-1000 ${currentConfig.class}`}
@@ -417,7 +428,7 @@ const Hero = ({ activeMode, onModeChange }) => {
               ></span>
             </div>
 
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-400">
+            <p className="mt-6 max-w-[34rem] text-[15px] leading-relaxed text-slate-400">
               {PERSONAL_INFO.tagline}
             </p>
 
@@ -437,7 +448,7 @@ const Hero = ({ activeMode, onModeChange }) => {
               </a>
 
               <a
-                href={`mailto:${PERSONAL_INFO.email}`}
+                href={`${PERSONAL_INFO.telegram}`}
                 className="inline-flex items-center justify-center rounded-xl border border-slate-800 bg-slate-900/40 px-7 py-3.5 font-mono text-xs font-bold uppercase tracking-widest text-slate-300 backdrop-blur-xl transition-all duration-500 ease-out hover:-translate-y-1 hover:border-slate-700 hover:text-white"
               >
                 Contact Me
@@ -473,6 +484,20 @@ const Hero = ({ activeMode, onModeChange }) => {
               >
                 <LinkedinIcon />
               </a>
+              <a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                className={`rounded-xl border border-slate-900 bg-slate-950/40 p-3.5 text-slate-400 backdrop-blur-md transition-all duration-500 hover:-translate-y-1 hover:text-white ${
+                  activeMode === "overclock"
+                    ? "hover:border-fuchsia-500/30"
+                    : activeMode === "hyper"
+                      ? "hover:border-indigo-500/30"
+                      : "hover:border-cyan-500/30"
+                }`}
+              >
+                <FacebookIcon />
+              </a>
             </div>
           </div>
 
@@ -487,7 +512,7 @@ const Hero = ({ activeMode, onModeChange }) => {
               onMouseMove={handleMouseMove}
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="relative w-full max-w-[580px] min-h-[580px] flex items-center justify-center p-4 transition-all duration-300 ease-out cursor-default"
+              className="relative flex min-h-[500px] w-full max-w-[540px] items-center justify-center p-4 transition-all duration-300 ease-out cursor-default sm:min-h-[560px] lg:max-w-[580px] lg:min-h-[580px]"
               style={{
                 transform: `rotateX(${tilt.x}deg) rotateY(${tilt.y}deg) translateZ(0)`,
                 transformStyle: "preserve-3d",
@@ -532,49 +557,49 @@ const Hero = ({ activeMode, onModeChange }) => {
               </div>
 
               {/* CARD 1: PORTABLE TABBED IDE */}
-              <div
+             <div
                 className="
-    absolute top-2 left-2 z-20 w-80
-    overflow-hidden rounded-2xl
-    border border-slate-800/70
-    bg-slate-900/40
-    p-3.5
-    shadow-2xl
-    backdrop-blur-xl
-    transition-all duration-500
-  "
+                  absolute top-[-1rem] left-[-1rem] z-20 w-64
+                  overflow-hidden rounded-xl
+                  border border-slate-800/70
+                  bg-slate-900/40
+                  p-3
+                  shadow-2xl
+                  backdrop-blur-xl
+                  transition-all duration-500
+                "
                 style={{
                   transform: "translateZ(65px)",
-                  boxShadow: `0 20px 50px -15px ${currentConfig.glow}`,
+                  boxShadow: `0 15px 40px -15px ${currentConfig.glow}`,
                 }}
               >
                 {/* Top Animated Line */}
                 <div
                   className={`
-      absolute left-0 top-0 h-[2.5px] w-full
-      bg-gradient-to-r transition-all duration-1000
-      ${currentConfig.class}
-    `}
+                    absolute left-0 top-0 h-[2px] w-full
+                    bg-gradient-to-r transition-all duration-1000
+                    ${currentConfig.class}
+                  `}
                 />
 
                 {/* Header */}
-                <div className="mb-3 flex flex-col gap-2.5 border-b border-slate-800/70 pb-2">
+                <div className="mb-2.5 flex flex-col gap-2 border-b border-slate-800/70 pb-2">
                   <div className="flex items-center justify-between">
                     {/* Mac Buttons */}
                     <div className="flex items-center gap-1.5">
-                      <span className="h-2.5 w-2.5 rounded-full border border-rose-600/50 bg-rose-500/70" />
-                      <span className="h-2.5 w-2.5 rounded-full border border-amber-600/50 bg-amber-500/70" />
-                      <span className="h-2.5 w-2.5 rounded-full border border-emerald-600/50 bg-emerald-500/70" />
+                      <span className="h-2 w-2 rounded-full border border-rose-600/50 bg-rose-500/70" />
+                      <span className="h-2 w-2 rounded-full border border-amber-600/50 bg-amber-500/70" />
+                      <span className="h-2 w-2 rounded-full border border-emerald-600/50 bg-emerald-500/70" />
                     </div>
 
                     {/* Workspace */}
-                    <span className="font-mono text-[8px] font-bold uppercase tracking-widest text-slate-500">
+                    <span className="font-mono text-[7px] font-bold uppercase tracking-widest text-slate-500">
                       workspace.io
                     </span>
                   </div>
 
                   {/* Tabs */}
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-1">
                     {["engine.log", "App.tsx", "mode.json"].map((tab) => {
                       const isActive = activeTab === tab;
 
@@ -583,31 +608,31 @@ const Hero = ({ activeMode, onModeChange }) => {
                           key={tab}
                           onClick={() => setActiveTab(tab)}
                           className={`
-              group relative overflow-hidden
-              rounded-md border px-2.5 py-1
-              font-mono text-[9px] font-semibold
-              transition-all duration-300
-              ${
-                isActive
-                  ? "border-cyan-400/20 text-cyan-300"
-                  : "border-transparent text-slate-500 hover:bg-slate-950/50 hover:text-slate-300"
-              }
-            `}
+                            group relative overflow-hidden
+                            rounded-md border px-2 py-1
+                            font-mono text-[8px] font-semibold
+                            transition-all duration-300
+                            ${
+                              isActive
+                                ? "border-cyan-400/20 text-cyan-300"
+                                : "border-transparent text-slate-500 hover:bg-slate-950/50 hover:text-slate-300"
+                            }
+                          `}
                         >
                           {/* Active BG */}
                           {isActive && (
                             <motion.div
                               layoutId="activeWorkspaceTab"
                               className="
-                  absolute inset-0
-                  rounded-md
-                  border border-cyan-400/20
-                  bg-gradient-to-br
-                  from-cyan-400/15
-                  via-sky-400/10
-                  to-blue-400/10
-                  shadow-[0_0_18px_rgba(34,211,238,0.15)]
-                "
+                                absolute inset-0
+                                rounded-md
+                                border border-cyan-400/20
+                                bg-gradient-to-br
+                                from-cyan-400/15
+                                via-sky-400/10
+                                to-blue-400/10
+                                shadow-[0_0_12px_rgba(34,211,238,0.15)]
+                              "
                               transition={{
                                 type: "spring",
                                 stiffness: 320,
@@ -618,15 +643,15 @@ const Hero = ({ activeMode, onModeChange }) => {
 
                           <span className="relative z-10 flex items-center gap-1">
                             {tab === "engine.log" && (
-                              <span className="text-[10px]">⚡</span>
+                              <span className="text-[9px]">⚡</span>
                             )}
 
                             {tab === "App.tsx" && (
-                              <span className="text-[10px]">⚛️</span>
+                              <span className="text-[9px]">⚛️</span>
                             )}
 
                             {tab === "mode.json" && (
-                              <span className="text-[10px]">⚙️</span>
+                              <span className="text-[9px]">⚙️</span>
                             )}
 
                             {tab}
@@ -638,9 +663,9 @@ const Hero = ({ activeMode, onModeChange }) => {
                 </div>
 
                 {/* Content */}
-                <div className="flex min-h-[105px] flex-col justify-center">
+                <div className="flex min-h-[85px] flex-col justify-center">
                   {activeTab === "engine.log" && (
-                    <div className="flex flex-col justify-end gap-1.5 font-mono text-[10px] leading-[1.6] text-slate-300">
+                    <div className="flex flex-col justify-end gap-1.5 font-mono text-[8.5px] leading-[1.5] text-slate-300">
                       {terminalLogs.map((log, idx) => (
                         <div
                           key={idx}
@@ -658,8 +683,8 @@ const Hero = ({ activeMode, onModeChange }) => {
                   )}
 
                   {activeTab === "App.tsx" && (
-                    <div className="overflow-x-hidden font-mono text-[10.5px] leading-4 text-slate-300">
-                      <div className="inline-block w-4 pr-2 text-[8px] text-slate-500 select-none">
+                    <div className="overflow-x-hidden font-mono text-[9px] leading-4 text-slate-300">
+                      <div className="inline-block w-3 pr-1.5 text-[7px] text-slate-500 select-none">
                         1
                       </div>
                       <span className="text-purple-400">import</span> React{" "}
@@ -667,14 +692,14 @@ const Hero = ({ activeMode, onModeChange }) => {
                       <span className="text-emerald-400">"react"</span>
                       ;
                       <br />
-                      <div className="inline-block w-4 pr-2 text-[8px] text-slate-500 select-none">
+                      <div className="inline-block w-3 pr-1.5 text-[7px] text-slate-500 select-none">
                         2
                       </div>
                       <span className="text-purple-400">export const</span>{" "}
                       <span className="text-yellow-400">System</span> = () =&gt;{" "}
                       {"{"}
                       <br />
-                      <div className="inline-block w-4 pr-2 text-[8px] text-slate-500 select-none">
+                      <div className="inline-block w-3 pr-1.5 text-[7px] text-slate-500 select-none">
                         3
                       </div>
                       &nbsp;&nbsp;
@@ -684,7 +709,7 @@ const Hero = ({ activeMode, onModeChange }) => {
                       <span className="text-sky-400">{systemLoad}</span>
                       {"}"} /&gt;
                       <br />
-                      <div className="inline-block w-4 pr-2 text-[8px] text-slate-500 select-none">
+                      <div className="inline-block w-3 pr-1.5 text-[7px] text-slate-500 select-none">
                         4
                       </div>
                       {"}"};
@@ -692,7 +717,7 @@ const Hero = ({ activeMode, onModeChange }) => {
                   )}
 
                   {activeTab === "mode.json" && (
-                    <div className="overflow-x-hidden font-mono text-[10.5px] leading-4 text-slate-300">
+                    <div className="overflow-x-hidden font-mono text-[9px] leading-4 text-slate-300">
                       <span className="text-slate-500">{"{"}</span>
                       <br />
                       &nbsp;&nbsp;

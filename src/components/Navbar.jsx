@@ -81,7 +81,7 @@ const Navbar = ({ theme, onToggleTheme }) => {
             : "bg-transparent py-6"
         }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
+        <div className="mx-auto flex w-full max-w-[1480px] items-center justify-between px-5 sm:px-6 lg:px-10 xl:px-12 2xl:px-16">
           {/* LOGO */}
           <a
             href="#"

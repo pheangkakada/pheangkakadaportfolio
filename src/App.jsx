@@ -31,8 +31,8 @@ function Home({ theme, toggleTheme, portfolioMode, setPortfolioMode }) {
       <main>
         <Hero activeMode={portfolioMode} onModeChange={setPortfolioMode} />
         <About />
-        <Credentials />
         <Skills />
+        <Credentials />
         <Projects />
         <Contact />
       </main>

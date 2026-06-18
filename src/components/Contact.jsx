@@ -4,6 +4,8 @@ import { FaTelegramPlane } from "react-icons/fa";
 import { HiSparkles } from "react-icons/hi2";
 import { RiFlashlightFill } from "react-icons/ri";
 import SectionHeader from "./SectionHeader";
+import { motion } from "framer-motion";
+import ScrollReveal, { revealItem, staggerContainer } from "./ScrollReveal";
 
 const Contact = () => {
   return (
@@ -12,47 +14,62 @@ const Contact = () => {
       className="relative overflow-hidden border-t border-slate-900 bg-slate-950 py-24"
     >
 
-      <div className="container mx-auto px-6 md:px-12">
-        <SectionHeader
-          title="Let's Connect"
-          description="Available for projects, internships, and collaborations."
-          align="center"
-          className="mb-16"
-        />
+      <div className="mx-auto w-full max-w-[1380px] px-5 sm:px-6 lg:px-10 xl:px-12">
+        <ScrollReveal>
+          <SectionHeader
+            title="Let's Connect"
+            description="Available for projects, internships, and collaborations."
+            align="center"
+            className="mb-16"
+          />
+        </ScrollReveal>
 
         {/* TOP SMALL BADGES */}
-        <div className="mb-8 flex flex-wrap items-center justify-center gap-4">
+        <motion.div
+          className="mb-8 flex flex-wrap items-center justify-center gap-4"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.4 }}
+        >
           
-          <div className="flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2">
+          <motion.div variants={revealItem} className="flex items-center gap-2 rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2">
             <div className="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></div>
 
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-400">
               Online
             </span>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-4 py-2">
+          <motion.div variants={revealItem} className="flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-4 py-2">
             <RiFlashlightFill className="text-cyan-400" />
 
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
               Creative Developer
             </span>
-          </div>
+          </motion.div>
 
-          <div className="flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-4 py-2">
+          <motion.div variants={revealItem} className="flex items-center gap-2 rounded-full border border-slate-800 bg-slate-900/70 px-4 py-2">
             <HiSparkles className="text-cyan-400" />
 
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-300">
               Open For Work
             </span>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* MAIN GRID */}
-        <div className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2">
+        <motion.div
+          className="mx-auto grid max-w-5xl gap-5 md:grid-cols-2"
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.18 }}
+        >
           
           {/* EMAIL */}
-          <a
+          <motion.a
+            variants={revealItem}
             href={`mailto:${PERSONAL_INFO.email}`}
             className="group relative overflow-hidden rounded-[32px] border border-slate-800 bg-slate-900/40 p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-400/40"
           >
@@ -103,10 +120,11 @@ const Contact = () => {
                 Usually replies within a few hours
               </p>
             </div>
-          </a>
+          </motion.a>
 
           {/* TELEGRAM */}
-          <a
+          <motion.a
+            variants={revealItem}
             href="https://t.me/pheangkakada"
             target="_blank"
             rel="noopener noreferrer"
@@ -159,17 +177,17 @@ const Contact = () => {
                 Fast communication & updates
               </p>
             </div>
-          </a>
-        </div>
+          </motion.a>
+        </motion.div>
 
         {/* BOTTOM MINI TEXT */}
-        <div className="mt-12 text-center">
+        <ScrollReveal className="mt-12 text-center" amount={0.5}>
           <p className="text-sm text-slate-500">
             Designed & Built with{" "}
             <span className="text-cyan-400">React</span> and{" "}
             <span className="text-cyan-400">Tailwind CSS</span>
           </p>
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   );
