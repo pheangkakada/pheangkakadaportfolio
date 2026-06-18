@@ -142,7 +142,7 @@ const PERSONAL_INFO = {
   tagline:
     "I design and develop modern digital experiences by combining frontend development, backend solutions, and thoughtful UI/UX design. My focus is creating responsive, high-performance applications that deliver seamless functionality and engaging user experiences.",
   email: "Kakada.Pheang@dev.io",
-  github: "https://github.com",
+  github: "https://github.com/pheangkakada",
   linkedin: "https://linkedin.com",
   telegram: "https://t.me/pheangkakada"
 };

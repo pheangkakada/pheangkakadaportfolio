@@ -8,7 +8,7 @@ export const PERSONAL_INFO = {
   tagline:
     "Computer Science major passionate about designing highly scalable web systems, intuitive UI/UX experiences, and robust API architectures. Actively seeking a Software Engineering Internship for Summer 2027.",
   email: "oookakda@gmail.com",
-  github: "https://github.com",
+  github: "https://github.com/pheangkakada",
   linkedin: "https://linkedin.com",
   resumeLink: "#",
   githubUsername: "kakadapheang",
