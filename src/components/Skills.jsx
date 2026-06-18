@@ -33,16 +33,16 @@ import { FaJava } from "react-icons/fa";
 
 const learningNow = [
   {
-    name: "CSharp",
-    icon: <TbBrandCSharp className="text-blue-400 text-2xl" />
+    name: "Typescript.js",
+    icon: <SiTypescript className="text-blue-400 text-2xl" />
   },
   {
-    name: "Docker",
-    icon: <SiDocker className="text-sky-400 text-xl" />,
+    name: "Next.js",
+    icon: <SiNextdotjs className="text-white text-xl" />,
   },
   {
-    name: "JAVA",
-    icon: <FaJava className="text-orange-400 text-2xl" />,
+    name: "Express.js",
+    icon: <SiExpress className="text-white text-xl" />,
   },
   {
     name: "Spring Framework",
