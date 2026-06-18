@@ -26,13 +26,13 @@ function Home({ theme, toggleTheme, portfolioMode, setPortfolioMode }) {
       data-portfolio-mode={portfolioMode}
       className={`min-h-screen bg-slate-950 text-slate-200 font-sans ${selectionClass}`}
     >
-      <Navbar theme={theme} onToggleTheme={toggleTheme} />
+      {/* <Navbar theme={theme} onToggleTheme={toggleTheme} /> */}
 
       <main>
         <Hero activeMode={portfolioMode} onModeChange={setPortfolioMode} />
         <About />
         <Skills />
-        {/* <Credentials /> */}
+        <Credentials />
         <Projects />
         <Contact />
       </main>
