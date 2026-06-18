@@ -32,7 +32,7 @@ function Home({ theme, toggleTheme, portfolioMode, setPortfolioMode }) {
         <Hero activeMode={portfolioMode} onModeChange={setPortfolioMode} />
         <About />
         <Skills />
-        <Credentials />
+        {/* <Credentials /> */}
         <Projects />
         <Contact />
       </main>
