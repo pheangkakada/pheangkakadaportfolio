@@ -25,7 +25,7 @@ export const PROJECTS = [
     tech: ["React.js", "Node.js", "Tailwind CSS", "LLMs"],
     category: "Fullstack",
     github: "#",
-    live: "https://pheangkakadaportfolio-k9mpf3prk-pheang-kakada-s-projects.vercel.app/AiagentUI",
+    live: "https://pheangkakadaportfolio.vercel.app/AiagentUI",
     previewImage: "/project-previews/portfolioAiPre.png",
     status: "PROD_ACTIVE",
     gradient: "from-cyan-400 via-blue-500 to-indigo-600",
